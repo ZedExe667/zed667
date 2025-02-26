@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بازی</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        let currentVideoIndex = 0;
+        const videoLinks = [
+            { src: "https://www.istripper.com/overviews/f0946/overview_web.webm", link: "https://t.me/jaq_magh" },
+            { src: "https://www.istripper.com/overviews/e0524/overview_web.webm", link: "https://t.me/zed_exe" },
+            { src: "https://www.istripper.com/overviews/e1989/overview_web.webm", link: "https://t.me/aqay_ghost" }
+        ];
+
+        // تابع برای تغییر ویدیوها
+        function changeVideo() {
+            const videoElement = document.getElementById('video-player');
+            const videoLink = videoLinks[currentVideoIndex];
+            videoElement.src = videoLink.src;
+
+            // تغییر لینک تبلیغاتی
+            const videoContainer = document.getElementById('video-container');
+            videoContainer.onclick = () => window.open(videoLink.link, "_blank");
+
+            // بارگذاری و پخش ویدیو جدید
+            videoElement.load();
+            videoElement.play();
+
+            // پس از اتمام ویدیو، فیلم بعدی را بارگذاری کن
+            videoElement.onended = function () {
+                currentVideoIndex = (currentVideoIndex + 1) % videoLinks.length;  // به فیلم بعدی برو
+                setTimeout(changeVideo, 500); // فیلم بعدی را با تاخیر بارگذاری کن
+            };
+        }
+
+        // تابع برای بستن ویدیو
+        function closeVideo() {
+            const videoContainer = document.getElementById('video-container');
+            videoContainer.style.display = 'none';  // مخفی کردن ویدیو
+        }
+
+        // بارگذاری اولیه فیلم
+        window.onload = function () {
+            changeVideo();
+        };
+    </script>
+</head>
+<body>
+    <div class="game-container">
+        <!-- بازی داخل iframe -->
+        <iframe id="game-iframe" src="https://fgn.cdn.serverable.com/common/flashes/nf/mrs_wood/Loader.html" frameborder="0"></iframe>
+    </div>
+
+    <!-- ویدیو بزرگ در گوشه پایین سمت راست -->
+    <div id="video-container" class="video-container">
+        <video id="video-player" autoplay muted>
+            <source src="" type="video/webm">
+        </video>
+        <div class="close-btn" onclick="closeVideo()">×</div>
+    </div>
+</body>
+</html>

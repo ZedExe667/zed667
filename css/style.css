@@ -1,0 +1,327 @@
+/* تنظیمات اولیه برای بدنه سایت */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* استایل برای محتوای اصلی صفحه */
+.main-content {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 20px;
+    z-index: 20;
+    position: relative;
+}
+
+/* استایل برای بخش تبلیغات */
+.ads {
+    position: fixed;
+    z-index: 10;
+    display: block;
+}
+
+.ads video {
+    width: auto;    /* عرض ویدیو به صورت خودکار تنظیم می‌شود */
+    height: 80%;    /* ارتفاع ویدیو تنظیم شده به 80% از ارتفاع صفحه */
+    object-fit: cover;  /* ویدیو به خوبی پر می‌شود بدون تغییر نسبت ابعاد */
+    border-radius: 10px;
+}
+
+/* تبلیغات بالا */
+.ads.top {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;  /* عرض ویدیو 80% از عرض صفحه */
+    height: auto;
+}
+
+/* تبلیغات چپ */
+.ads.left {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100px;  /* عرض کم برای فیلم سمت چپ */
+    height: 80%;  /* ارتفاع 80% از صفحه */
+    z-index: 5;
+}
+
+/* تبلیغات راست */
+.ads.right {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 100px;  /* عرض کم برای فیلم سمت راست */
+    height: 80%;  /* ارتفاع 80% از صفحه */
+    z-index: 5;
+}
+
+/* تبلیغات پایین */
+.ads.bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;  /* عرض ویدیو 80% از عرض صفحه */
+    height: auto;
+}
+
+/* طراحی برای صفحات */
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ff3366;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+/* استایل برای لینک‌ها (تبلیغات ویدیو) */
+.ads a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* استایل برای ویدیو در حالت hover */
+.ads video:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* تنظیمات برای نمایش در موبایل */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* تبلیغات بالا */
+    .ads.top {
+        height: 120px;  /* ارتفاع ویدیوها کمتر در موبایل */
+    }
+
+    /* تبلیغات چپ */
+    .ads.left {
+        width: 80px;  /* عرض کمتر برای موبایل */
+        height: 80%;   /* ارتفاع همچنان 80% */
+    }
+
+    /* تبلیغات راست */
+    .ads.right {
+        width: 80px;  /* عرض کمتر برای موبایل */
+        height: 80%;   /* ارتفاع همچنان 80% */
+    }
+
+    /* تبلیغات پایین */
+    .ads.bottom {
+        height: 120px;  /* ارتفاع ویدیوها کمتر در موبایل */
+    }
+
+    /* محتوای اصلی صفحه */
+    .main-content {
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+}
+
+
+
+
+
+
+/* تنظیمات بدنه صفحه */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* قالب کلی بازی */
+.game-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+iframe {
+    width: 80%; /* عرض بازی */
+    height: 80%; /* ارتفاع بازی */
+    border: none;
+    border-radius: 10px;
+}
+
+/* ویدیو بزرگ در گوشه پایین سمت راست */
+.video-container {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 432px; /* عرض فیلم */
+    height: 298px; /* ارتفاع فیلم */
+    z-index: 100;
+    cursor: pointer;
+}
+
+/* ویدیو بدون کادر و با تنظیمات مناسب */
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* نمایش فیلم به طور کامل در ابعاد مورد نظر */
+}
+
+/* دکمه بستن فیلم */
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 30px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* قالب جذاب صفحه */
+h1 {
+    font-size: 2em;
+    margin: 10px;
+    text-align: center;
+    color: #ff3366;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+p {
+    font-size: 1.2em;
+    text-align: center;
+    color: #ccc;
+}
+/* تنظیمات اولیه برای بدنه سایت */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* استایل برای محتوای اصلی صفحه */
+.main-content {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 20px;
+    z-index: 20;
+    position: relative;
+}
+
+/* استایل برای تبلیغ در پایین صفحه */
+.ads.bottom {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;  /* عرض تبلیغ بیشتر از 80% */
+    height: auto;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6); /* سایه‌دار کردن پس‌زمینه */
+    border-radius: 15px;  /* گوشه‌های گرد */
+    padding: 10px 0; /* فاصله مناسب */
+}
+
+.ads.bottom video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* سایه برای فیلم */
+}
+
+/* نمایش متن تبلیغاتی */
+.advertisement-text {
+    position: absolute;
+    top: 10px;  /* بالا بردن متن */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    z-index: 15;
+    padding: 0 10px; /* فاصله از لبه */
+    background-color: rgba(0, 0, 0, 0.6);  /* پس‌زمینه کمی تیره برای متن */
+    border-radius: 10px;  /* گوشه‌های گرد */
+}
+
+/* استایل برای شمارش معکوس */
+#countdown {
+    color: #ff3366;
+    font-weight: bold;
+}
+
+/* استایل برای عنوان */
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ff3366;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+/* استایل برای لینک‌ها (تبلیغات ویدیو) */
+.ads a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* استایل برای ویدیو در حالت hover */
+.ads video:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* تنظیمات برای نمایش در موبایل */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* تبلیغات پایین */
+    .ads.bottom {
+        height: 120px;  /* ارتفاع ویدیوها کمتر در موبایل */
+    }
+
+    /* محتوای اصلی صفحه */
+    .main-content {
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+}

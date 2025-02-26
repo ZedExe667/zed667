@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه اصلی</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        // زمانی که صفحه بارگذاری شد
+        document.addEventListener("DOMContentLoaded", function() {
+            var countdown = 10;  // شمارش معکوس از 10 ثانیه
+            var countdownElement = document.getElementById("countdown");
+
+            // تابع شمارش معکوس
+            var timer = setInterval(function() {
+                countdownElement.textContent = countdown;  // نمایش زمان باقی‌مانده
+
+                if (countdown <= 0) {
+                    clearInterval(timer);  // متوقف کردن تایمر
+                    window.location.href = "Loader.html";  // هدایت به صفحه game.html
+                } else {
+                    countdown--;  // کاهش شمارش
+                }
+            }, 1000); // هر یک ثانیه
+        });
+    </script>
+</head>
+<body>
+    <!-- تبلیغ پایین صفحه -->
+    <div class="ads bottom">
+        <a href="https://t.me/jaq_magh" target="_blank">
+            <video autoplay loop muted>
+                <source src="https://i.imgur.com/AbLE841.mp4" type="video/mp4">
+            </video>
+        </a>
+        <div class="advertisement-text">
+            <span class="highlight">جای تبلیغ شما اینجاست</span>
+        </div>
+    </div>
+
+    <!-- محتوای اصلی صفحه -->
+    <div class="main-content">
+        <h1>خوش آمدید به سایت بازی!</h1>
+        <p>بعد از <span id="countdown">10</span> ثانیه به صفحه بازی هدایت خواهید شد...</p>
+    </div>
+</body>
+</html>
